@@ -1,0 +1,689 @@
+[
+  {
+    "nodes" : [
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{6, 32}, {200, 52}}",
+        "class" : "TextField",
+        "attributes" : {
+          "uuid" : "05E67ADA-A3E6-4484-9E48-3C780D5BB5EA",
+          "corner_radius" : 0,
+          "frame" : "{{80, 112}, {200, 32}}",
+          "border_color" : "RGBA(0.794811,0.794811,0.794811,1.000000)",
+          "border_width" : 2,
+          "custom_attributes" : "{\"autocapitalization_type\":ui.AUTOCAPITALIZE_ALL,\n\"clear_button_mode\" :\"while_editing\"}",
+          "action" : "form.get_call",
+          "alignment" : "left",
+          "autocorrection_type" : "default",
+          "text" : "",
+          "placeholder" : " Callsign",
+          "font_name" : "<System>",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "name" : "callsign",
+          "font_size" : 17
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{6, 139}, {594, 56}}",
+        "class" : "TextField",
+        "attributes" : {
+          "uuid" : "758825B1-29FF-4CFE-B1D9-DB954D970B3E",
+          "frame" : "{{412, 368}, {200, 32}}",
+          "custom_attributes" : "{\"clear_button_mode\" :\"while_editing\"}",
+          "action" : "form.get_comments",
+          "alignment" : "left",
+          "autocorrection_type" : "default",
+          "placeholder" : "comments",
+          "font_name" : "<System>",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "name" : "comments",
+          "font_size" : 17
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{228, 32}, {223, 52}}",
+        "class" : "DatePicker",
+        "attributes" : {
+          "border_width" : 2,
+          "action" : "form.get_time",
+          "mode" : 2,
+          "frame" : "{{352, 276}, {320, 216}}",
+          "class" : "DatePicker",
+          "corner_radius" : 0,
+          "uuid" : "2D7A324D-86B8-4FA5-B5D6-9377595C927D",
+          "background_color" : "RGBA(0.674528,0.674528,0.674528,1.000000)",
+          "border_color" : "RGBA(0.615566,0.604167,0.598467,1.000000)",
+          "name" : "datetime"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{100, 220}, {51, 31}}",
+        "class" : "Switch",
+        "attributes" : {
+          "uuid" : "5FEFFA7A-2910-4651-A99B-27EF0154816D",
+          "corner_radius" : 10,
+          "background_color" : "RGBA(0.826389,0.841981,0.818593,1.000000)",
+          "frame" : "{{487, 369}, {51, 31}}",
+          "tint_color" : "RGBA(0.214623,0.858491,0.429246,1.000000)",
+          "border_width" : 2,
+          "border_color" : "RGBA(0.636792,0.636792,0.636792,1.000000)",
+          "custom_attributes" : "",
+          "value" : false,
+          "action" : "form.s2sswitch",
+          "class" : "Switch",
+          "name" : "S2S"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{27, 220}, {56, 31}}",
+        "class" : "Label",
+        "attributes" : {
+          "font_size" : 18,
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "EF60CE32-A05B-40F1-B5D2-129807ECF6F7",
+          "class" : "Label",
+          "alignment" : "left",
+          "text" : "S2S",
+          "name" : "isS2S",
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{27, 259}, {200, 56}}",
+        "class" : "TextField",
+        "attributes" : {
+          "uuid" : "79E287F9-2085-432D-88E9-DEFE873CF055",
+          "frame" : "{{412, 368}, {200, 32}}",
+          "custom_attributes" : "{\"hidden\": True,\"autocapitalization_type\":ui.AUTOCAPITALIZE_ALL}",
+          "action" : "form.get_othersummit",
+          "alignment" : "left",
+          "autocorrection_type" : "default",
+          "placeholder" : "other summit ref",
+          "font_name" : "<System>",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "name" : "othersummit",
+          "font_size" : 17
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{499, 32}, {200, 52}}",
+        "class" : "TextField",
+        "attributes" : {
+          "uuid" : "0C3EFB7A-A240-4699-BC0B-50FC10A378D5",
+          "frame" : "{{412, 368}, {200, 32}}",
+          "custom_attributes" : "{\"clear_button_mode\" :\"while_editing\"}",
+          "action" : "form.get_name",
+          "alignment" : "left",
+          "autocorrection_type" : "default",
+          "text_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+          "placeholder" : "Name",
+          "font_name" : "<System>",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "name" : "name",
+          "font_size" : 17
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{325, 232}, {96, 42}}",
+        "class" : "Button",
+        "attributes" : {
+          "uuid" : "7A72DEDB-F660-4554-BCD5-3C4B804A0615",
+          "corner_radius" : 2,
+          "background_color" : "RGBA(0.844340,0.844340,0.844340,1.000000)",
+          "frame" : "{{472, 368}, {80, 32}}",
+          "tint_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+          "border_width" : 4,
+          "border_color" : "RGBA(0.938679,0.911071,0.911071,1.000000)",
+          "title" : "QRZ Lookup",
+          "action" : "form.lookup",
+          "alpha" : 1,
+          "font_bold" : false,
+          "class" : "Button",
+          "name" : "qrz",
+          "font_size" : 15
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{452, 232}, {96, 42}}",
+        "class" : "Button",
+        "attributes" : {
+          "border_width" : 4,
+          "action" : "form.save",
+          "frame" : "{{472, 368}, {80, 32}}",
+          "title" : "Save",
+          "uuid" : "D6FD3E85-CC32-4115-A9C2-266C84543F8B",
+          "class" : "Button",
+          "corner_radius" : 0,
+          "background_color" : "RGBA(0.846698,0.846698,0.846698,1.000000)",
+          "border_color" : "RGBA(0.931604,0.931604,0.931604,1.000000)",
+          "name" : "save",
+          "font_size" : 15
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{729, 32}, {109, 54}}",
+        "class" : "TextField",
+        "attributes" : {
+          "uuid" : "10BBD08D-19BC-485E-BC16-FD267D9BDFCC",
+          "frame" : "{{412, 368}, {200, 32}}",
+          "custom_attributes" : "{\"keyboard_type\": ui.KEYBOARD_DECIMAL_PAD}",
+          "action" : "form.get_srst",
+          "alignment" : "center",
+          "autocorrection_type" : "default",
+          "placeholder" : "SRST",
+          "font_name" : "<System>",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "name" : "srst",
+          "font_size" : 17
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{864, 32}, {109, 54}}",
+        "class" : "TextField",
+        "attributes" : {
+          "uuid" : "58ED9716-83F8-4F1A-BB31-B4ED25B29181",
+          "frame" : "{{412, 368}, {200, 32}}",
+          "custom_attributes" : "{\"keyboard_type\": ui.KEYBOARD_DECIMAL_PAD}",
+          "action" : "form.get_rrst",
+          "alignment" : "center",
+          "autocorrection_type" : "default",
+          "placeholder" : "RRST",
+          "font_name" : "<System>",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "name" : "rrst",
+          "font_size" : 17
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{6, 0}, {150, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "name" : "label1",
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "A628E27C-5C05-4D35-8D8C-44EB0D1B60BE",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "Callsign",
+          "background_color" : "RGBA(0.667453,0.667453,0.667453,1.000000)",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{228, 0}, {150, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "name" : "label2",
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "B803B115-E22B-4033-86DF-7AF06ABC0D31",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "Time on ",
+          "background_color" : "RGBA(0.667453,0.667453,0.667453,1.000000)",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{499, 0}, {150, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "name" : "label3",
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "66EAD363-E5EC-44F6-89DA-AAAD27BA5C6B",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "Name",
+          "background_color" : "RGBA(0.662736,0.662736,0.662736,1.000000)",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{729, 0}, {109, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "name" : "label4",
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "7A0BCC15-13DC-48E9-9140-9E185FF9B62B",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "SRST",
+          "background_color" : "RGBA(0.660377,0.660377,0.660377,1.000000)",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{864, 0}, {109, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "font_name" : "<System>",
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "7A0BCC15-13DC-48E9-9140-9E185FF9B62B",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "SRST",
+          "background_color" : "RGBA(0.667453,0.667453,0.667453,1.000000)",
+          "name" : "label4",
+          "font_size" : 18
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{6, 99}, {150, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "name" : "label5",
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "6380A597-E44A-48CF-8A0D-5B44763414D7",
+          "class" : "Label",
+          "alignment" : "left",
+          "text" : "Comments",
+          "background_color" : "RGBA(0.653302,0.653302,0.653302,1.000000)",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{647, 130}, {157, 56}}",
+        "class" : "TextField",
+        "attributes" : {
+          "action" : "form.get_opcall",
+          "name" : "opcall",
+          "frame" : "{{412, 368}, {200, 32}}",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "uuid" : "3C594425-9150-4E47-9B22-31F50E71C157",
+          "alignment" : "left",
+          "custom_attributes" : "{\"autocapitalization_type\":ui.AUTOCAPITALIZE_ALL}",
+          "autocorrection_type" : "default",
+          "font_size" : 17,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{647, 99}, {150, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "name" : "label6",
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "B18F7BDC-BD7A-41E3-BE00-B7CEBCFEC05B",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "Operator",
+          "background_color" : "RGBA(0.674528,0.674528,0.674528,1.000000)",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{820, 130}, {183, 56}}",
+        "class" : "TextField",
+        "attributes" : {
+          "action" : "form.get_mysummit",
+          "name" : "textfield1",
+          "frame" : "{{412, 368}, {200, 32}}",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "uuid" : "14F5DC80-3A37-48A7-BB22-3E6328E0FD9B",
+          "alignment" : "left",
+          "custom_attributes" : "{\"autocapitalization_type\":ui.AUTOCAPITALIZE_ALL}",
+          "autocorrection_type" : "default",
+          "font_size" : 17,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{820, 100}, {150, 31}}",
+        "class" : "Label",
+        "attributes" : {
+          "name" : "label7",
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "F5A352FF-6B56-472D-ABB2-61C00FB79C8D",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "My summit ref",
+          "background_color" : "RGBA(0.674528,0.674528,0.674528,1.000000)",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{228, 90}, {141, 30}}",
+        "class" : "Button",
+        "attributes" : {
+          "border_width" : 2,
+          "action" : "form.get_timenow",
+          "frame" : "{{472, 368}, {80, 32}}",
+          "title" : "Time Now (UTC)",
+          "uuid" : "3A1DA9EE-0C72-4E8E-92D6-A13ADDA401B6",
+          "class" : "Button",
+          "corner_radius" : 0,
+          "border_color" : "RGBA(0.917453,0.917453,0.917453,1.000000)",
+          "background_color" : "RGBA(0.735849,0.735849,0.735849,1.000000)",
+          "name" : "timenow",
+          "font_size" : 15
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{647, 241}, {157, 56}}",
+        "class" : "TextField",
+        "attributes" : {
+          "uuid" : "A70D6778-B4C8-407D-A9AA-9857D0D5E656",
+          "frame" : "{{412, 368}, {200, 32}}",
+          "custom_attributes" : "{\"keyboard_type\": ui.KEYBOARD_DECIMAL_PAD}\n",
+          "action" : "form.get_freq",
+          "alignment" : "center",
+          "autocorrection_type" : "default",
+          "placeholder" : "frequency ",
+          "font_name" : "<System>",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "name" : "frequency",
+          "font_size" : 17
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{820, 241}, {183, 56}}",
+        "class" : "TextField",
+        "attributes" : {
+          "uuid" : "9A27581A-7B9B-4298-B092-BF2306A2EB6A",
+          "frame" : "{{412, 368}, {200, 32}}",
+          "custom_attributes" : "{\"autocapitalization_type\":ui.AUTOCAPITALIZE_ALL}",
+          "action" : "form.get_mode",
+          "alignment" : "center",
+          "autocorrection_type" : "default",
+          "placeholder" : "mode",
+          "font_name" : "<System>",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "name" : "mode",
+          "font_size" : 17
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{647, 210}, {150, 30}}",
+        "class" : "Label",
+        "attributes" : {
+          "name" : "label8",
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "A5DC73BF-2C26-4948-ACDF-4A5E14C5F00F",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "Frequency ",
+          "background_color" : "RGBA(0.683962,0.683962,0.683962,1.000000)",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{830, 210}, {150, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "name" : "label9",
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "AEB352EB-4A27-4C0E-8724-C1E375953770",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "Mode",
+          "background_color" : "RGBA(0.674528,0.674528,0.674528,1.000000)",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{647, 325}, {150, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "font_size" : 18,
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "89640B17-D5C7-494C-B27D-86C6CDF25659",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "QTH",
+          "name" : "lblqth",
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{823, 325}, {150, 33}}",
+        "class" : "Label",
+        "attributes" : {
+          "font_name" : "<System>",
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "89640B17-D5C7-494C-B27D-86C6CDF25659",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "Country",
+          "font_size" : 18,
+          "name" : "lblcountry"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{647, 407}, {150, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "font_name" : "<System>",
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "89640B17-D5C7-494C-B27D-86C6CDF25659",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "Grid Sq",
+          "font_size" : 18,
+          "name" : "lblgrid"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{647, 358}, {150, 32}}",
+        "class" : "TextField",
+        "attributes" : {
+          "action" : "form.get_qth",
+          "font_size" : 17,
+          "frame" : "{{412, 368}, {200, 32}}",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "uuid" : "65BB78F0-0E8F-47FD-9382-C891016695BF",
+          "alignment" : "left",
+          "autocorrection_type" : "default",
+          "name" : "qth",
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{823, 358}, {150, 32}}",
+        "class" : "TextField",
+        "attributes" : {
+          "action" : "form.get_country",
+          "font_name" : "<System>",
+          "frame" : "{{412, 368}, {200, 32}}",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "uuid" : "65BB78F0-0E8F-47FD-9382-C891016695BF",
+          "alignment" : "left",
+          "autocorrection_type" : "default",
+          "font_size" : 17,
+          "name" : "country"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{647, 437}, {150, 35}}",
+        "class" : "TextField",
+        "attributes" : {
+          "action" : "form.get_qth",
+          "font_name" : "<System>",
+          "frame" : "{{412, 368}, {200, 32}}",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "uuid" : "65BB78F0-0E8F-47FD-9382-C891016695BF",
+          "alignment" : "left",
+          "autocorrection_type" : "default",
+          "font_size" : 17,
+          "name" : "grid"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{377, 92}, {262, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "font_size" : 16,
+          "text_color" : "RGBA(1.000000,0.166667,0.166667,1.000000)",
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "9E90FFD2-AC6F-4FCE-AB02-D7374F002A24",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "",
+          "background_color" : "RGBA(0.658824,0.658824,0.658824,1.000000)",
+          "name" : "qrz_status_lbl",
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      }
+    ],
+    "frame" : "{{0, 0}, {1024, 768}}",
+    "class" : "View",
+    "attributes" : {
+      "enabled" : true,
+      "background_color" : "RGBA(0.660377,0.660377,0.660377,1.000000)",
+      "tint_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+      "flex" : ""
+    },
+    "selected" : false
+  }
+]

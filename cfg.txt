@@ -1,0 +1,3 @@
+qrzuser = [qrz_user]          
+qrzpass = [QRZ_password]
+qrzauto = [1]    # For future option do disble QRZ auto lookup
