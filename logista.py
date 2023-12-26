@@ -1,4 +1,4 @@
-# version 1.0.1
+# version 1.1.2
 # Logista is an iPad SOTA log tool by MW0PDV
 # This tool is intended to assist in typing up a
 # paper SOTA log. It will produce a SOTA csv v2 file and also and an ADIF(adi)
@@ -43,6 +43,7 @@ class logform(ui.View):          # initialise the variable associated with
 		self.country = ""
 		self.grid = ""
 		self.header = False
+		self.prev_qso = []
 		
 		
 		# check dir exists and if not create it
@@ -97,7 +98,7 @@ class logform(ui.View):          # initialise the variable associated with
 				break
 			else:
 				i += 1
-				time.sleep(2)
+				time.sleep(1)
 				
 				
 	
@@ -137,6 +138,13 @@ class logform(ui.View):          # initialise the variable associated with
 		sender.superview['datetime'].date = x
 		self.timeon = str(x)
 		v['datetime'].border_color = '0bc20b'
+		
+	def timenow_vis(self,sender):
+		if sender.value is True:
+			v['timenow'].hidden = True
+		else:
+			v['timenow'].hidden = False
+		
 		
 	def get_name(self, sender):		# binding to ui template file
 		self.name = sender.text
@@ -205,11 +213,11 @@ class logform(ui.View):          # initialise the variable associated with
 				self.grid = var_lst[3]
 				v['qrz_status_lbl'].text = ""
 			elif qrz[1] == "ok":
-				sender.superview['name'].text = "QRZ call not found"
+				sender.superview['name'].text = "QRZ: call not found"
 			else:
-				v['qrz_status_lbl'].text = "QRZ connection lost"
+				v['qrz_status_lbl'].text = "QRZ: connection lost"
 		else:
-			v['qrz_status_lbl'].text = "QRZ " + self.qrz_status[1]
+			v['qrz_status_lbl'].text = "QRZ: " + self.qrz_status[1]
 	
 	def clearform(self):				# clears the form felds for QSO specific fiedls
 		v['name'].text = ""
@@ -228,14 +236,22 @@ class logform(ui.View):          # initialise the variable associated with
 		v['datetime'].border_color = 'cacaca'
 		
 	def textout(self, output):
-		hd = "Last QSO \n Date 		 Time    Call   	  Name   S  R  \n "
-		txtout = hd
-		for flds in output:
-			hd += flds + "   "
-		#print(hd)
+		hd = "Prev QSOs  \n Date 		 Time    Call   	  Name   S  R  \n "
+		
+		for qso in output:
+			for flds in qso:
+				hd += flds + "   "
+			hd += '\n '
 		v['textview'].text = hd
 	
 	def save(self, sender):  # format for SOTA csv2  and ADI and write to files
+		
+		# check is time should be set on save
+		
+		if  v['timesw'].value is True:
+			self.get_timenow(sender)
+			
+		
 		
 		# each adif field if fomatted and added to the adi_list
 		
@@ -332,22 +348,24 @@ class logform(ui.View):          # initialise the variable associated with
 		# format the sota csv fields
 		sotalist = []
 		sotalist.append("v2,")
-		sotalist.append(call + ",")
+		sotalist.append(operator + ",")
 		sotalist.append(self.mysummit + ",")
 		sotalist.append(sotadate + ",")
 		sotalist.append(sotatime + ",")
 		sotalist.append(freq + "MHz" + ",")
 		sotalist.append(self.mode + ",")
-		sotalist.append(operator + ",")
+		sotalist.append(call + ",")
 		sotalist.append(self.othersummit + ",")
-		sotalist.append(self.name + " S-" + self.srst + " R-" + self.rrst)
+		sotalist.append(self.name + ",")
 		sotalist.append('\n')
 		
 		
 		sotacsv.writelines(sotalist)
 		
+		# create a 2d list of previous qso's
 		txout = [sotadate, sotatime, call, self.name, self.srst, self.rrst]
-		form.textout(txout)
+		self.prev_qso.insert(0,txout)
+		form.textout(self.prev_qso)
 		
 		form.clearform()
 		adifile.close()
