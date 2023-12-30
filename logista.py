@@ -1,4 +1,4 @@
-# version 1.1.2
+# version 1.1.4
 # Logista is an iPad SOTA log tool by MW0PDV
 # This tool is intended to assist in typing up a
 # paper SOTA log. It will produce a SOTA csv v2 file and also and an ADIF(adi)
@@ -113,6 +113,7 @@ class logform(ui.View):          # initialise the variable associated with
 		self.callsign = sender.text
 		calltxt = v['callsign']
 		calltxt.border_color = '0bc20b'
+		
 
 		if self.qrzauto == '1':
 			self.lookup(sender)  # set object instance
@@ -227,11 +228,12 @@ class logform(ui.View):          # initialise the variable associated with
 		v['qth'].text = ""
 		v['country'].text = ""
 		v['grid'].text = ""
-
-		if len(self.othersummit) > 0:				# if qso was s2s, set switch off and
-			self.clearothersummit.text = ""		# hide sota text box
+		
+		if len(self.othersummit) > 0:
 			self.switch.value = False
 			v['othersummit'].hidden = True
+			v['othersummit'].text = "" # clear textbox
+			self.othersummit = "" 					# clear variable
 		v['callsign'].border_color = 'cacaca'
 		v['datetime'].border_color = 'cacaca'
 		
@@ -298,7 +300,7 @@ class logform(ui.View):          # initialise the variable associated with
 		adiqth = "<QTH:" + str(len(adiqth)) + ">" + adiqth
 		adi_list += adiqth
 		
-		adimode = self.mode
+		adimode = (str(self.mode)).strip()
 		adimode = "<MODE:" + str(len(adimode)) + ">" + adimode
 		adi_list += adimode
 		
@@ -356,7 +358,7 @@ class logform(ui.View):          # initialise the variable associated with
 		sotalist.append(self.mode + ",")
 		sotalist.append(call + ",")
 		sotalist.append(self.othersummit + ",")
-		sotalist.append(self.name + ",")
+		sotalist.append(self.name)  
 		sotalist.append('\n')
 		
 		
