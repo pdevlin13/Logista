@@ -1,0 +1,5 @@
+v1.1.4
+	Updated Logista.py to v1.1.4
+	Tidied some PEP8 formatting.
+	Added a feature to allow the option to add SRST and RRST to the Notes field of the SOTA csv.
+	This is on by default and can be turned off by changing the 1 to 0 in the "rston" option line in the cfg.txt file
