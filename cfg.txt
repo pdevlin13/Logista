@@ -1,3 +1,4 @@
-qrzuser = [qrz_user]          
-qrzpass = [QRZ_password]
+qrzuser = [qrz_user]          # enter you QRZ user name
+qrzpass = [QRZ_password]	# enter your QRZ password
 qrzauto = [1]    # For future option do disble QRZ auto lookup
+rston = [1]	# is set to 1 the sent and received reports will be added to the SOTA csv note field

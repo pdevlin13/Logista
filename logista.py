@@ -1,4 +1,4 @@
-# version 1.1.4
+# version 1.1.5
 # Logista is an iPad SOTA log tool by MW0PDV
 # This tool is intended to assist in typing up a
 # paper SOTA log. It will produce a SOTA csv v2 file and also and an ADIF(adi)
@@ -20,7 +20,7 @@ import datetime
 import time
 import qrz_lookup
 
-# this is the path to the Pythonist3 directory on iCloud 
+# this is the path to the Pythonist3 directory on iCloud
 icloud_path = "/private/var/mobile/Library/Mobile Documents"
 icloud_path += "/iCloud~com~omz-software~Pythonista3/Documents/"
 
@@ -45,12 +45,11 @@ class logform(ui.View):          # initialise the variable associated with
 		self.header = False
 		self.prev_qso = []
 		
-		
 		# check dir exists and if not create it
 		if os.path.isdir(icloud_path + 'Log_Files') is False:
 			os.mkdir(icloud_path + 'Log_Files')
 		
-			# setup filenames to use for the sssion increment file number if needed	
+			# setup filenames to use for the sssion increment file number if needed
 		adifchk = False
 		i = 0
 		while adifchk is not True:
@@ -83,25 +82,30 @@ class logform(ui.View):          # initialise the variable associated with
 		qrzuserend = cfgtext.find(']', qrzuserstart)
 		qrzuser = cfgtext[qrzuserstart + 1:qrzuserend]
 		
+		# future option to turn off qrz auto lookup currently noy used
 		qrzautostart = cfgtext.find("qrzauto")
 		qrzautostart = cfgtext.find('[', qrzautostart)
 		qrzauto = cfgtext[qrzautostart + 1:qrzautostart + 2]
 		self.qrzauto = qrzauto
+		
+		# option to add report to SOTA csv note field
+		rst_in_note_start = cfgtext.find("rston")
+		rst_in_note_start = cfgtext.find('[', rst_in_note_start)
+		rst_in_note = cfgtext[rst_in_note_start + 1:rst_in_note_start + 2]
+		self.rst_in_note = rst_in_note
 		
 		# open QRZ sesion and cache key
 		# 2 attempts will be made to open a session
 		i = 0
 		while i < 2:
 			self.qrz_status = qrz_lookup.opensession(qrzuser, qrzpass)
-			#print(self.qrz_status)
 			if self.qrz_status[0] is True:
 				break
 			else:
 				i += 1
 				time.sleep(1)
 				
-				
-	
+					
 # each of the get_xxx methods are a bindings to the pyui graphics file
 # property field, each graphics object has the name of the function
 # without the parenthasis i.e form.get_xx
@@ -114,7 +118,6 @@ class logform(ui.View):          # initialise the variable associated with
 		calltxt = v['callsign']
 		calltxt.border_color = '0bc20b'
 		
-
 		if self.qrzauto == '1':
 			self.lookup(sender)  # set object instance
 				
@@ -140,13 +143,12 @@ class logform(ui.View):          # initialise the variable associated with
 		self.timeon = str(x)
 		v['datetime'].border_color = '0bc20b'
 		
-	def timenow_vis(self,sender):
+	def timenow_vis(self, sender):
 		if sender.value is True:
 			v['timenow'].hidden = True
 		else:
 			v['timenow'].hidden = False
-		
-		
+			
 	def get_name(self, sender):		# binding to ui template file
 		self.name = sender.text
 			
@@ -195,9 +197,9 @@ class logform(ui.View):          # initialise the variable associated with
 			bandstr = "0M"
 		return bandstr
 	
-	# the method below calls qrz_lookup and handles the returned list	
-	def lookup(self, sender):  #calls QRZ lookup module
-		if self.qrz_status[0] is True:	
+	# the method below calls qrz_lookup and handles the returned list
+	def lookup(self, sender):  # calls QRZ lookup module
+		if self.qrz_status[0] is True:
 			qrz = qrz_lookup.qrz_lookup(self.callsign)
 			
 			if qrz[0] != 'error':
@@ -232,7 +234,7 @@ class logform(ui.View):          # initialise the variable associated with
 		if len(self.othersummit) > 0:
 			self.switch.value = False
 			v['othersummit'].hidden = True
-			v['othersummit'].text = "" # clear textbox
+			v['othersummit'].text = ""			 # clear textbox
 			self.othersummit = "" 					# clear variable
 		v['callsign'].border_color = 'cacaca'
 		v['datetime'].border_color = 'cacaca'
@@ -250,11 +252,9 @@ class logform(ui.View):          # initialise the variable associated with
 		
 		# check is time should be set on save
 		
-		if  v['timesw'].value is True:
+		if v['timesw'].value is True:
 			self.get_timenow(sender)
 			
-		
-		
 		# each adif field if fomatted and added to the adi_list
 		
 		adi_list = []
@@ -325,9 +325,8 @@ class logform(ui.View):          # initialise the variable associated with
 		adi_list += adicountry
 		
 		adi_list += "<eor>\n"
-		
-		
-		# Open Files 		
+			
+		# Open Files
 		adifile = open(self.adifname, 'ta')
 		sotacsv = open(self.sotafname, 'ta')
 				
@@ -358,15 +357,20 @@ class logform(ui.View):          # initialise the variable associated with
 		sotalist.append(self.mode + ",")
 		sotalist.append(call + ",")
 		sotalist.append(self.othersummit + ",")
-		sotalist.append(self.name)  
+		
+		if self.rst_in_note == '1':			# check config to see if report in notes is on
+			sotanote = self.name + " S-" + self.srst + " R-" + self.rrst
+		else:
+			sotanote = self.name
+			
+		sotalist.append(sotanote)
 		sotalist.append('\n')
-		
-		
+			
 		sotacsv.writelines(sotalist)
 		
 		# create a 2d list of previous qso's
 		txout = [sotadate, sotatime, call, self.name, self.srst, self.rrst]
-		self.prev_qso.insert(0,txout)
+		self.prev_qso.insert(0, txout)
 		form.textout(self.prev_qso)
 		
 		form.clearform()
