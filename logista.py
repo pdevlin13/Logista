@@ -1,4 +1,4 @@
-# version 1.1.5
+# version 1.1.6
 # Logista is an iPad SOTA log tool by MW0PDV
 # This tool is intended to assist in typing up a
 # paper SOTA log. It will produce a SOTA csv v2 file and also and an ADIF(adi)
@@ -224,12 +224,19 @@ class logform(ui.View):          # initialise the variable associated with
 	
 	def clearform(self):				# clears the form felds for QSO specific fiedls
 		v['name'].text = ""
+		self.name = ""
 		v['srst'].text = ""
+		self.srst = ""
 		v['rrst'].text = ""
+		self.rrst = ""
 		v['callsign'].text = ""
+		self.callsign = ""
 		v['qth'].text = ""
+		self.qth = ""
 		v['country'].text = ""
+		self.country = ""
 		v['grid'].text = ""
+		self.qth = ""
 		
 		if len(self.othersummit) > 0:
 			self.switch.value = False
