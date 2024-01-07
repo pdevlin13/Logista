@@ -1,4 +1,4 @@
-# version 1.0.1
+# version 1.0.2
 # QRZ Lookup module by MW0PDV
 
 import os
@@ -10,7 +10,7 @@ import urllib.request
 
 def opensession(qrzuser, qrzpass):
 	url = "https://xmldata.qrz.com/xml/current/?username="
-	url += qrzuser + "&password=" + qrzpass + "&agent=q5.0"
+	url += qrzuser + "&password=" + qrzpass + "&agent=Logista"
 	#print(url)
 	try:
 		file = urllib.request.urlopen(url)
@@ -42,7 +42,7 @@ def opensession(qrzuser, qrzpass):
 # Querry QRZ with session key and return the key values in qrz_key_lst
 
 def qrz_lookup(call):
-	qrz_key_lst = ['fname', 'addr2', 'country', 'grid']
+	#qrz_key_lst = ['fname', 'addr2', 'country', 'grid']
 	f = open('cache.txt','r')
 	qkey = f.readline()
 	
@@ -55,11 +55,25 @@ def qrz_lookup(call):
 			qrz_lookup = file1.read()
 			file1.close()
 			qrz_data = xmltodict.parse(qrz_lookup)
+			
 			try:
 				qrz_data = qrz_data['QRZDatabase']['Callsign']
+				fname_exist = False
+				# test if fname key exist if not use name and format
+				if 'fname' in qrz_data.keys():
+					qrz_key_lst = ['fname', 'addr2', 'country', 'grid']
+					fname_exist = True
+				else:
+					qrz_key_lst = ['name', 'addr2', 'country', 'grid']
+					fname_exist = False
+					
 				resultlst = []
+				
 				for elem in range(len(qrz_key_lst)):
 					resultlst.append(qrz_data[qrz_key_lst[elem]])
+					
+				if fname_exist is False:
+					resultlst[0] = format_name(resultlst[0])  # format / clean name info
 					
 				return resultlst
 				
@@ -72,8 +86,22 @@ def qrz_lookup(call):
 	except urllib.error.URLError:
 			resultlst = ['error', 'fail', 'URL connection lost']
 			return resultlst
+			
+# function to format name, fname is not always used by QRZ user
+def format_name(rawname):
+	title_list = ['dr', 'mr', 'mr', 'miss', 'mrs', 'ms','doc', 'prof']
+	namelst = rawname.split()
 	
+	if len(namelst) > 1:
+		if namelst[0].lower() in (title_list):
+			fname = namelst[1]
+		else:
+			fname = namelst[0]
+	else:
+		fname = rawname
 		
+	return fname
+	
 
 
 

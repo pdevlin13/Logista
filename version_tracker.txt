@@ -1,8 +1,14 @@
-v1.1.6
+7th Jan 2024 qrz_lookup.py v1.0.2
+	Minor bug fix/ improved handling of returned xml data
+	It seems some QRZ users do not populate the first name field. In this situation qrz_lookup would report call not found as it didn’t get the fname key returned.
+	I have now added a bit of code to check if the first name is populated. if it isnt qrz_lookup will attempt to use name instead, by stripping out any titles and surnames.
+
+
+6th Jan 2024 logista.py v1.1.6
 	Fixed a bug where you could get a duplicate QRZ look up details if a callsign was not found. 
 
 
-v1.1.5
+1st Jan 2024 logista.py v1.1.5
 	Updated Logista.py to v1.1.5
 	Tidied some PEP8 formatting.
 	Added a feature to allow the option to add SRST and RRST to the Notes field of the SOTA csv.
