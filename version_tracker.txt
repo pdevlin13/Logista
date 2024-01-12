@@ -1,3 +1,9 @@
+12th Jan 2024   logista.py v1.1.7
+	implemented a workaround for a problem caused when writing non ascii characters to the adi file. Some place names returned from a QRZ lookup
+	contain non ascii characters sometimes. They are now replaced with "_" to make it more obvious that a non asci character has been stripped out.
+
+
+
 7th Jan 2024 qrz_lookup.py v1.0.2
 	Minor bug fix/ improved handling of returned xml data
 	It seems some QRZ users do not populate the first name field. In this situation qrz_lookup would report call not found as it didn’t get the fname key returned.
