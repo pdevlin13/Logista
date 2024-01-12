@@ -1,4 +1,4 @@
-# version 1.1.6
+# version 1.1.7
 # Logista is an iPad SOTA log tool by MW0PDV
 # This tool is intended to assist in typing up a
 # paper SOTA log. It will produce a SOTA csv v2 file and also and an ADIF(adi)
@@ -197,6 +197,16 @@ class logform(ui.View):          # initialise the variable associated with
 			bandstr = "0M"
 		return bandstr
 	
+		# check text is within ASCii range. Raplaces non ascci characters with '_'
+	def chk_ascii(self, text):
+		chktxt = ""
+		for chr in text:
+			if ord(chr) > 128:
+				chktxt += "_"
+			else:
+				chktxt += chr
+		return chktxt
+	
 	# the method below calls qrz_lookup and handles the returned list
 	def lookup(self, sender):  # calls QRZ lookup module
 		if self.qrz_status[0] is True:
@@ -209,6 +219,7 @@ class logform(ui.View):          # initialise the variable associated with
 				for obj in obj_lst:
 					sender.superview[obj].text = qrz[i]
 					var_lst.append(qrz[i])
+					var_lst[i] = self.chk_ascii(var_lst[i]). #  check for non ascii characters
 					i += 1
 				self.name = var_lst[0]
 				self.qth = var_lst[1]
