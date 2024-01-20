@@ -1,3 +1,7 @@
+20th Jan 2024 logista.py v1.1.8
+	corrected version in logista.py The fix below had been pushed but was still showing v1.1.7
+	corrected a typo where a "." had crept in from a double spece whilst editing on iPad causing a error on execution
+
 12th Jan 2024   logista.py v1.1.7
 	implemented a workaround for a problem caused when writing non ascii characters to the adi file. Some place names returned from a QRZ lookup
 	contain non ascii characters sometimes. They are now replaced with "_" to make it more obvious that a non asci character has been stripped out.
